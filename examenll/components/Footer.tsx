@@ -31,7 +31,25 @@ const Footer: React.FC = () => {
             <div className="col-md-6 text-center text-md-start">
               <p>© 2023 María Chacón</p>
             </div>
-            {/* Div María */}
+            <div className="col-md-6 text-center text-md-end">
+              <ul className="list-inline mb-0">
+                <li className="list-inline-item">
+                  <a href="https://www.facebook.com/mariajose.chaconmora?mibextid=ZbWKwL">
+                    <i className="bi bi-facebook redes"></i>
+                  </a>
+                </li>
+                <li className="list-inline-item">
+                  <a href="https://github.com/Maria-Chacon">
+                    <i className="bi bi-github redes"></i>
+                  </a>
+                </li>
+                <li className="list-inline-item">
+                  <a href="https://instagram.com/ksmaria13?igshid=MzNlNGNkZWQ4Mg==">
+                    <i className="bi bi-instagram redes"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </footer>
