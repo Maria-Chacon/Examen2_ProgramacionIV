@@ -10,6 +10,7 @@ import Footer from '../../components/Footer'
 import NavBar from '../../components/NavBar'
 
 
+import ChatRecipes from '../../components/ChatRecipes'
 const Index: React.FC = () => {
   return (
     <>
@@ -20,6 +21,7 @@ const Index: React.FC = () => {
       <NavBar />
       <Header />
       <SectionAbout />
+      <ChatRecipes />
       <Footer />
       </>
   )
