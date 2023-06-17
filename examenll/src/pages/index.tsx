@@ -6,6 +6,7 @@ import Header from '../../components/Header'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import SectionAbout from '../../components/SectionAbout'
 const Index: React.FC = () => {
   return (
     <>
@@ -14,6 +15,7 @@ const Index: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <SectionAbout />
       </>
   )
 }
