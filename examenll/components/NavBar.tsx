@@ -6,7 +6,7 @@ import logo from '../public/dm.jpg';
 
 const NavBar: React.FC = () => {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar style={{backgroundColor: "#C8B6FF"}}  expand="lg">
       <Navbar.Brand href="#home">
       <Image src={logo} alt="Mi logo" width="75" height="75" className="img-fluid rounded-circle" style={{marginLeft:'20px'}} />
         
