@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import SectionAbout from '../../components/SectionAbout'
 import Footer from '../../components/Footer'
+import ChatRecipes from '../../components/ChatRecipes'
 const Index: React.FC = () => {
   return (
     <>
@@ -17,6 +18,7 @@ const Index: React.FC = () => {
       </Head>
       <Header />
       <SectionAbout />
+      <ChatRecipes />
       <Footer />
       </>
   )
