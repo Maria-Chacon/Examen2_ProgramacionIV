@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import Image from 'next/image';
-import logo from '../images/dm.jpg';
+import logo from '../public/dm.jpg';
 const Header: React.FC = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
