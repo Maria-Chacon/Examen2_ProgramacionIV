@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const ChatRecipes: React.FC = () => {
   const [inputParams, setInputParams] = useState('');
   const [response, setResponse] = useState('');
-  const apiKey = "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";
+  const apiKey = "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";
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputParams(event.target.value);
@@ -32,7 +32,7 @@ const ChatRecipes: React.FC = () => {
           model: 'gpt-3.5-turbo',
           messages: [
             { role: 'system', content: 'You are a helpful assistant.' },
-            { role: 'user', content: "Generar recetas;${ingredientes};${tipo};${dificultad};${cantidadSalidas} "},
+            { role: 'user', content: `Generar recetas;${ingredientes};${tipo};${dificultad};${cantidadSalidas}` },
           ],
         }),
       });
@@ -48,7 +48,7 @@ const ChatRecipes: React.FC = () => {
           setResponse('Error al obtener la respuesta del API');
         }
       } else {
-        setResponse('Error al obtener la respuesta del APIIII');
+        setResponse('Error al obtener la respuesta del API');
       }
     } catch (error) {
       console.error('Error al hacer la solicitud al API:', error);
