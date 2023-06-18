@@ -4,7 +4,7 @@
                 utilizando el API GPT para proporcionar recetas de cocina.
 ```
 <h1 align="center">
-    Desarrolladores
+    Desarrolladoras
 </h1>
 
 <h4 align="center">
