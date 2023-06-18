@@ -13,14 +13,16 @@ const SectionAbout: React.FC = () => {
               Bienvenido a nuestro sistema de chat basado en inteligencia artificial (IA).
             </p>
             <p>
-              Utilizamos el modelo de lenguaje Chat GPT para proporcionarte respuestas precisas y relevantes a tus preguntas y consultas en tiempo real.
-              Nuestro sistema es capaz de entender una amplia variedad de temas y puede adaptarse a diferentes contextos para brindarte la información que necesitas.
+              Utilizamos el modelo de lenguaje Chat GPT para proporcionarte recetas de cocina en tiempo real.
             </p>
             <p>
-              Ya sea que estés buscando respuestas a preguntas generales o necesites ayuda en áreas especializadas, el Chat GPT está diseñado para ayudarte en tu búsqueda.
+              Nuestro sistema es capaz de entender una amplia variedad de ingredientes, tipos de cocina, niveles de dificultad y cantidades para generar recetas personalizadas para ti.
             </p>
             <p>
-              ¡Explora nuestro sistema de chat y descubre cómo puede facilitar tus interacciones y brindarte respuestas rápidas y confiables!
+              Simplemente ingresa los ingredientes deseados en el campo de texto separados por punto y coma (;), o selecciona las opciones disponibles en los listados desplegables.
+            </p>
+            <p>
+              ¡Explora nuestro sistema de chat y descubre una nueva forma de obtener inspiración culinaria!
             </p>
           </div>
           <div className="col-md-6 d-flex align-items-center">
