@@ -12,7 +12,7 @@ const ChatRecipes: React.FC = () => {
   const [selectedType, setSelectedType] = useState('');
   const [selectedDifficulty, setSelectedDifficulty] = useState('');
   const [selectedQuantity, setSelectedQuantity] = useState('');
-  const apiKey = "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";
+  const apiKey = "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";
   
   const ingredients = ingredientsData.ingredients;
   const types = ['Casera', 'Gourmet', 'Saludable'];
