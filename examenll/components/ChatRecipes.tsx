@@ -89,7 +89,7 @@ const ChatRecipes: React.FC = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 chat">
       <h2 className="text-center">Chat</h2>
       <div className="row justify-content-center">
         <div className="col-md-6">
@@ -104,7 +104,7 @@ const ChatRecipes: React.FC = () => {
               />
               <div className="input-group-append">
                 <button
-                  className="btn btn-outline-secondary"
+                  className="menu"
                   type="button"
                   onClick={() => setIngredientListVisible(!ingredientListVisible)}
                 >
@@ -122,7 +122,7 @@ const ChatRecipes: React.FC = () => {
               </div>
               <div className="input-group-append">
                 <button
-                  className="btn btn-outline-secondary"
+                  className="menu"
                   type="button"
                   onClick={() => setTypeListVisible(!typeListVisible)}
                 >
@@ -140,7 +140,7 @@ const ChatRecipes: React.FC = () => {
               </div>
               <div className="input-group-append">
                 <button
-                  className="btn btn-outline-secondary"
+                  className="menu"
                   type="button"
                   onClick={() => setDifficultyListVisible(!difficultyListVisible)}
                 >
@@ -157,7 +157,7 @@ const ChatRecipes: React.FC = () => {
               </div>
               <div className="input-group-append">
                 <button
-                  className="btn btn-outline-secondary"
+                  className="menu"
                   type="button"
                   onClick={() => setQuantityListVisible(!quantityListVisible)}
                 >
@@ -174,7 +174,7 @@ const ChatRecipes: React.FC = () => {
                   </select>
                 )}
               </div>
-              <button className="btn btn-primary" type="submit">
+              <button className="principalButton" type="submit">
                 Enviar
               </button>
             </div>

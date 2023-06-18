@@ -163,6 +163,15 @@ a {
   text-transform: uppercase;
   border-radius:1em;
 }
+.menu {
+  text-decoration: none;
+  color:black;
+  background-color: #B8C0FF;
+  padding: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  border-radius:1em;
+}
 .contacButton {
   text-decoration: none;
   color:black;
@@ -190,3 +199,12 @@ a {
   margin: 40px;
 
 }
+
+.chat {
+  background-color: #E7C6FF;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 40px;
+
+}
+

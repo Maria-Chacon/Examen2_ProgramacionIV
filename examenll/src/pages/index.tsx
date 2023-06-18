@@ -17,7 +17,7 @@ const Index: React.FC = () => {
         <title>ChatGPT Barato</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div style={{backgroundColor: "white"}}>
+      <div style={{backgroundColor: "#F8EFFB"}}>
         <NavBar />
         <Header />
         <SectionAbout />

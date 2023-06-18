@@ -3,9 +3,9 @@ import React from 'react';
 const Footer: React.FC = () => {
   return (
     <div id="contacts">
-      <footer style={{backgroundColor: "#C8B6FF"}}>
+      <footer style={{ backgroundColor: "#C8B6FF" }}>
         <div className="container">
-          <div className="row">
+          <div className="row justify-content-center align-items-center">
             <div className="col-md-6 text-center text-md-start">
               <p>© 2023 Dayana Gamboa</p>
             </div>
