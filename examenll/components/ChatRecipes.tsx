@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import ingredientsData from '../public/ingredients.json';
-require('dotenv').config({ path: '.env.local' });
 const ChatRecipes: React.FC = () => {
   const [inputParams, setInputParams] = useState('');
   const [response, setResponse] = useState('');
@@ -61,7 +60,7 @@ const ChatRecipes: React.FC = () => {
       const response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
-          Authorization: 'Bearer ' + process.env.API_KEY,
+          Authorization: 'Bearer ' + process.env.NEXT_PUBLIC_DEMO_VARIABLE,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
