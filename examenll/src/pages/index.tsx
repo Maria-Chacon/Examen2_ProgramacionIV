@@ -17,13 +17,16 @@ const Index: React.FC = () => {
         <title>ChatGPT Barato</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NavBar />
-      <Header />
-      <SectionAbout />
-      <ChatRecipes />
-      <CallToAction />
-      <Footer />
-      </>
+      <div style={{backgroundColor: "white"}}>
+        <NavBar />
+        <Header />
+        <SectionAbout />
+        <ChatRecipes />
+        <CallToAction />
+        <Footer />
+      </div>
+
+    </>
   )
 }
 
