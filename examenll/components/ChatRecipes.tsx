@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import ingredientsData from '../public/ingredients.json';
 
 const ChatRecipes: React.FC = () => {
   const [inputParams, setInputParams] = useState('');
@@ -7,40 +8,49 @@ const ChatRecipes: React.FC = () => {
   const [typeListVisible, setTypeListVisible] = useState(false);
   const [difficultyListVisible, setDifficultyListVisible] = useState(false);
   const [quantityListVisible, setQuantityListVisible] = useState(false);
-  const [selectedIngredient, setSelectedIngredient] = useState('');
+  const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
   const [selectedType, setSelectedType] = useState('');
   const [selectedDifficulty, setSelectedDifficulty] = useState('');
   const [selectedQuantity, setSelectedQuantity] = useState('');
-  const apiKey = "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";
+  const apiKey = "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";
+  
+  const ingredients = ingredientsData.ingredients;
+  const types = ['Casera', 'Gourmet', 'Saludable'];
+  const difficulties = ['Fácil', 'Media', 'Difícil'];
+  const quantities = ['1', '2', '3', '4', '5'];
+
+  useEffect(() => {
+    setInputParams('');
+  }, [ingredientListVisible]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputParams(event.target.value);
   };
 
   const handleIngredientSelect = (ingredient: string) => {
-    setSelectedIngredient(ingredient);
-    setIngredientListVisible(false);
+    setSelectedIngredients((prevIngredients) => [...prevIngredients, ingredient]);
+  };
+
+  const handleIngredientRemove = (ingredient: string) => {
+    setSelectedIngredients((prevIngredients) => prevIngredients.filter((item) => item !== ingredient));
   };
 
   const handleTypeSelect = (type: string) => {
     setSelectedType(type);
-    setTypeListVisible(false);
   };
 
   const handleDifficultySelect = (difficulty: string) => {
     setSelectedDifficulty(difficulty);
-    setDifficultyListVisible(false);
   };
 
   const handleQuantitySelect = (quantity: string) => {
     setSelectedQuantity(quantity);
-    setQuantityListVisible(false);
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const ingredients = selectedIngredient || inputParams;
+    const ingredients = selectedIngredients.join(',');
     const type = selectedType;
     const difficulty = selectedDifficulty;
     const quantity = selectedQuantity;
@@ -81,8 +91,7 @@ const ChatRecipes: React.FC = () => {
       setResponse('Error al hacer la solicitud al API');
     }
 
-    setInputParams('');
-    setSelectedIngredient('');
+    setSelectedIngredients([]);
     setSelectedType('');
     setSelectedDifficulty('');
     setSelectedQuantity('');
@@ -94,97 +103,146 @@ const ChatRecipes: React.FC = () => {
       <div className="row justify-content-center">
         <div className="col-md-6">
           <form onSubmit={handleSubmit}>
-            <div className="input-group mb-3">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Escribe los ingredientes"
-                value={inputParams}
-                onChange={handleInputChange}
-              />
-              <div className="input-group-append">
-                <button
-                  className="menu"
-                  type="button"
-                  onClick={() => setIngredientListVisible(!ingredientListVisible)}
-                >
-                  Ingredientes
-                </button>
-                {ingredientListVisible && (
-                  <select className="form-control" onChange={(e) => handleIngredientSelect(e.target.value)}>
-                    <option value="">Ninguno</option>
-                    <option value="tomate">Tomate</option>
-                    <option value="fideos">Fideos</option>
-                    <option value="pollo">Pollo</option>
-                    {/* Agrega más ingredientes aquí */}
-                  </select>
-                )}
+            <div className="row mb-3">
+              <div className="col">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Escribe los ingredientes"
+                  value={inputParams}
+                  onChange={handleInputChange}
+                />
               </div>
-              <div className="input-group-append">
-                <button
-                  className="menu"
-                  type="button"
-                  onClick={() => setTypeListVisible(!typeListVisible)}
-                >
-                  Tipo
-                </button>
-                {typeListVisible && (
-                  <select className="form-control" onChange={(e) => handleTypeSelect(e.target.value)}>
-                    <option value="">Ninguno</option>
-                    <option value="casera">Casera</option>
-                    <option value="gourmet">Gourmet</option>
-                    <option value="saludable">Saludable</option>
-                    {/* Agrega más tipos aquí */}
-                  </select>
-                )}
+            </div>
+            <div className="row mb-3">
+              <div className="col">
+                <div className="input-group">
+                  <button
+                    className="btn btn-outline-secondary"
+                    type="button"
+                    onClick={() => setIngredientListVisible(!ingredientListVisible)}
+                  >
+                    Ingredientes
+                  </button>
+                  {ingredientListVisible && (
+                    <select
+                      className="form-control"
+                      onChange={(e) => handleIngredientSelect(e.target.value)}
+                    >
+                      <option value="">Selecciona un ingrediente</option>
+                      {ingredients.map((ingredient: string) => (
+                        <option key={ingredient} value={ingredient}>
+                          {ingredient}
+                        </option>
+                      ))}
+                    </select>
+                  )}
+                </div>
               </div>
-              <div className="input-group-append">
-                <button
-                  className="menu"
-                  type="button"
-                  onClick={() => setDifficultyListVisible(!difficultyListVisible)}
-                >
-                  Dificultad
-                </button>
-                {difficultyListVisible && (
-                  <select className="form-control" onChange={(e) => handleDifficultySelect(e.target.value)}>
-                    <option value="">Ninguno</option>
-                    <option value="Fácil">Fácil</option>
-                    <option value="Media">Media</option>
-                    <option value="Difícil">Difícil</option>
-                  </select>
-                )}
+              <div className="col">
+                <div>
+                  {selectedIngredients.map((ingredient) => (
+                    <span key={ingredient} className="badge badge-secondary mr-2">
+                      {ingredient}
+                      <button
+                        type="button"
+                        className="btn-close btn-sm"
+                        onClick={() => handleIngredientRemove(ingredient)}
+                      />
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="input-group-append">
+              <div className="col-auto">
                 <button
-                  className="menu"
+                  className="btn btn-sm btn-outline-primary mt-2"
                   type="button"
-                  onClick={() => setQuantityListVisible(!quantityListVisible)}
+                  onClick={() => setIngredientListVisible(false)}
                 >
-                  Cantidad
+                  Listo
                 </button>
-                {quantityListVisible && (
-                  <select className="form-control" onChange={(e) => handleQuantitySelect(e.target.value)}>
-                    <option value="">Ninguno</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                  </select>
-                )}
               </div>
-              <button className="principalButton" type="submit">
-                Enviar
-              </button>
+            </div>
+            <div className="row mb-3">
+              <div className="col">
+                <div className="input-group">
+                  <button
+                    className="btn btn-outline-secondary"
+                    type="button"
+                    onClick={() => setTypeListVisible(!typeListVisible)}
+                  >
+                    Tipo
+                  </button>
+                  {typeListVisible && (
+                    <select className="form-control" onChange={(e) => handleTypeSelect(e.target.value)}>
+                      <option value="">Ninguno</option>
+                      {types.map((type: string) => (
+                        <option key={type} value={type}>
+                          {type}
+                        </option>
+                      ))}
+                    </select>
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="row mb-3">
+              <div className="col">
+                <div className="input-group">
+                  <button
+                    className="btn btn-outline-secondary"
+                    type="button"
+                    onClick={() => setDifficultyListVisible(!difficultyListVisible)}
+                  >
+                    Dificultad
+                  </button>
+                  {difficultyListVisible && (
+                    <select className="form-control" onChange={(e) => handleDifficultySelect(e.target.value)}>
+                      <option value="">Ninguno</option>
+                      {difficulties.map((difficulty: string) => (
+                        <option key={difficulty} value={difficulty}>
+                          {difficulty}
+                        </option>
+                      ))}
+                    </select>
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="row mb-3">
+              <div className="col">
+                <div className="input-group">
+                  <button
+                    className="btn btn-outline-secondary"
+                    type="button"
+                    onClick={() => setQuantityListVisible(!quantityListVisible)}
+                  >
+                    Cantidad
+                  </button>
+                  {quantityListVisible && (
+                    <select className="form-control" onChange={(e) => handleQuantitySelect(e.target.value)}>
+                      <option value="">Ninguno</option>
+                      {quantities.map((quantity: string) => (
+                        <option key={quantity} value={quantity}>
+                          {quantity}
+                        </option>
+                      ))}
+                    </select>
+                  )}
+                </div>
+              </div>
+            </div>
+            <div className="row mb-3">
+              <div className="col">
+                <button type="submit" className="btn btn-primary">
+                  Generar Receta
+                </button>
+              </div>
             </div>
           </form>
           {response && (
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">Respuesta</h5>
-                <p className="card-text">{response}</p>
-              </div>
+            <div className="alert alert-info" role="alert">
+              {response}
             </div>
           )}
         </div>
@@ -194,4 +252,3 @@ const ChatRecipes: React.FC = () => {
 };
 
 export default ChatRecipes;
-
