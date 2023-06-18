@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Header from '../../components/Header'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import CallToAction from '../../components/CallToAction'
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import SectionAbout from '../../components/SectionAbout'
 import Footer from '../../components/Footer'
@@ -21,6 +21,7 @@ const Index: React.FC = () => {
       <Header />
       <SectionAbout />
       <ChatRecipes />
+      <CallToAction />
       <Footer />
       </>
   )
