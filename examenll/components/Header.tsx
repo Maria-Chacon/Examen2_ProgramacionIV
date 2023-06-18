@@ -5,25 +5,23 @@ import imageHeader from '../public/headerImage.jpeg';
 
 
 const Header: React.FC = () => {
-    return (
-        <header className='page-header'>
-            <div
-                className="mask"
-            >
-                <div className="text-white" >
+  return (
+    <header className='page-header'>
+      <div
+        className="mask"
+      >
+        <div className="text-white" >
 
-                    <div className="text-white">
-                        <h1 className="mb-3">Chat De Recetas DM</h1>
-                        <h4 className="mb-5">DM Chat</h4>
-                        <a className="principalButton" href="#call" role="button"
-                        >Call to action</a
-                        >
-                    </div>
+          <div className="text-white">
+            <h1 className="mb-3">Chat De Recetas DM</h1>
+            <h4 className="mb-5">DM Chat</h4>
+            <a className="principalButton" href="#call" role="button">Call to action</a>
+          </div>
 
-                </div>
-            </div>
-        </header>
-    );
+        </div>
+      </div>
+    </header>
+  );
 };
 
 export default Header;
