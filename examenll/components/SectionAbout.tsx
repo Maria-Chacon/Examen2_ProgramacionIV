@@ -4,7 +4,7 @@ import myImage from '../public/dm.jpg';
 
 const SectionAbout: React.FC = () => {
   return (
-    <section className="bg-light" id="about">
+    <section id="about" style={{backgroundColor: "#F8EFFB"}}>
       <div className="container py-5">
         <div className="row">
           <div className="col-md-6">
