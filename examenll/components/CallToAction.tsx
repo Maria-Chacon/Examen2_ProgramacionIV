@@ -11,18 +11,19 @@ const CallToAction: React.FC = () => {
                 <div className="row">
                     <div className="offset-lg-2 col-lg-8 col-md-12 col-12 text-center">
                         <span className="fs-2 text-darck ls-md text-uppercase" style={{fontWeight: "bold"}}>
-                            Solicita informacion de forma gratitua
+                            Comunícate con nosotras
                         </span>
 
-                        <h2 className="mt-4 mb-3 text-white" style={{fontWeight: "bold"}}>
-                            Contrata mis servicios, puedo aportar mucho valor a tú proyecto,
-                            además estaré encantada de ayudarte y colaborar para que el
-                            proyecto sea un éxito, ponte en contacto conmigo.
+                        <h2 className="mt-4 mb-3" style={{color: 'lightcoral' ,fontWeight: "bold"}}>
+                        Si tienes alguna pregunta, inquietud o encuentras algún error, no dudes en contactarnos. 
+                        Estaremos encantadas de ayudarte y brindarte la asistencia necesaria. 
+                        Además, si deseas obtener más información sobre nuestros servicios, 
+                        puedes hacerlo haciendo clic en 'Más información'.
                         </h2>
 
                         <div className="d-grid d-md-block">
-                            <a href="#" className="contacButton mb-2 m-4">Contactanos</a>
-                            <a href="#" className="informationButton ">Mas informacion</a>
+                            <a href="#" className="contacButton mb-2 m-4">Contáctanos</a>
+                            <a href="#" className="informationButton ">Más información</a>
                         </div>
                     </div>
                 </div>
