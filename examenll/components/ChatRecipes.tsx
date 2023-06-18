@@ -118,7 +118,7 @@ const ChatRecipes: React.FC = () => {
               <div className="col">
                 <div className="input-group">
                   <button
-                    className="btn btn-outline-secondary"
+                    className="menu"
                     type="button"
                     onClick={() => setIngredientListVisible(!ingredientListVisible)}
                   >
@@ -155,7 +155,7 @@ const ChatRecipes: React.FC = () => {
               </div>
               <div className="col-auto">
                 <button
-                  className="btn btn-sm btn-outline-primary mt-2"
+                  className="principalButton mt-2"
                   type="button"
                   onClick={() => setIngredientListVisible(false)}
                 >
@@ -167,7 +167,7 @@ const ChatRecipes: React.FC = () => {
               <div className="col">
                 <div className="input-group">
                   <button
-                    className="btn btn-outline-secondary"
+                    className="menu"
                     type="button"
                     onClick={() => setTypeListVisible(!typeListVisible)}
                   >
@@ -190,7 +190,7 @@ const ChatRecipes: React.FC = () => {
               <div className="col">
                 <div className="input-group">
                   <button
-                    className="btn btn-outline-secondary"
+                    className="menu"
                     type="button"
                     onClick={() => setDifficultyListVisible(!difficultyListVisible)}
                   >
@@ -213,7 +213,7 @@ const ChatRecipes: React.FC = () => {
               <div className="col">
                 <div className="input-group">
                   <button
-                    className="btn btn-outline-secondary"
+                    className="menu"
                     type="button"
                     onClick={() => setQuantityListVisible(!quantityListVisible)}
                   >
@@ -234,7 +234,7 @@ const ChatRecipes: React.FC = () => {
             </div>
             <div className="row mb-3">
               <div className="col">
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="principalButton">
                   Generar Receta
                 </button>
               </div>
