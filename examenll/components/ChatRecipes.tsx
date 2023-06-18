@@ -12,7 +12,7 @@ const ChatRecipes: React.FC = () => {
   const [selectedType, setSelectedType] = useState('');
   const [selectedDifficulty, setSelectedDifficulty] = useState('');
   const [selectedQuantity, setSelectedQuantity] = useState('');
-  const apiKey = "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";
+  const apiKey = "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";
   
   const ingredients = ingredientsData.ingredients;
   const types = ['Casera', 'Gourmet', 'Saludable'];
@@ -98,7 +98,7 @@ const ChatRecipes: React.FC = () => {
   };
 
   return (
-    <div className="container mt-5 chat">
+    <div id="chat" className="container mt-5 chat">
       <h2 className="text-center">Chat</h2>
       <div className="row justify-content-center">
         <div className="col-md-6">

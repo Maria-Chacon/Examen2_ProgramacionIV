@@ -17,7 +17,7 @@ const NavBar: React.FC = () => {
           <Nav.Link href="#home">Inicio</Nav.Link>
           <Nav.Link href="#about">Acerca de</Nav.Link>
           <Nav.Link href="#chat">Chat</Nav.Link> 
-          <Nav.Link href="#contact">Contacto</Nav.Link>
+          <Nav.Link href="#call">Contacto</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
