@@ -6,7 +6,7 @@ import logo from '../public/dm.jpg';
 
 const CallToAction: React.FC = () => {
     return (
-        <div className="calltoaction" id="contact">
+        <div className="calltoaction" id="call">
             <div className="container">
                 <div className="row">
                     <div className="offset-lg-2 col-lg-8 col-md-12 col-12 text-center">
