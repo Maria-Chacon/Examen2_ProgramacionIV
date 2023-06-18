@@ -8,7 +8,7 @@ const SectionAbout: React.FC = () => {
       <div className="container py-5">
         <div className="row">
           <div className="col-md-6">
-            <h2 className="mb-3">Acerca del Chat GPT</h2>
+            <h2 className="mb-3">Acerca del Chat de Recetas DM</h2>
             <p className="lead">
               Bienvenido a nuestro sistema de chat basado en inteligencia artificial (IA).
             </p>
