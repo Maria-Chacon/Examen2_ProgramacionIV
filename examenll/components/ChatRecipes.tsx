@@ -3,21 +3,47 @@ import React, { useState } from 'react';
 const ChatRecipes: React.FC = () => {
   const [inputParams, setInputParams] = useState('');
   const [response, setResponse] = useState('');
-  const apiKey = "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";
+  const [ingredientListVisible, setIngredientListVisible] = useState(false);
+  const [typeListVisible, setTypeListVisible] = useState(false);
+  const [difficultyListVisible, setDifficultyListVisible] = useState(false);
+  const [quantityListVisible, setQuantityListVisible] = useState(false);
+  const [selectedIngredient, setSelectedIngredient] = useState('');
+  const [selectedType, setSelectedType] = useState('');
+  const [selectedDifficulty, setSelectedDifficulty] = useState('');
+  const [selectedQuantity, setSelectedQuantity] = useState('');
+  const apiKey = "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";
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputParams(event.target.value);
   };
 
+  const handleIngredientSelect = (ingredient: string) => {
+    setSelectedIngredient(ingredient);
+    setIngredientListVisible(false);
+  };
+
+  const handleTypeSelect = (type: string) => {
+    setSelectedType(type);
+    setTypeListVisible(false);
+  };
+
+  const handleDifficultySelect = (difficulty: string) => {
+    setSelectedDifficulty(difficulty);
+    setDifficultyListVisible(false);
+  };
+
+  const handleQuantitySelect = (quantity: string) => {
+    setSelectedQuantity(quantity);
+    setQuantityListVisible(false);
+  };
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!inputParams) {
-      setResponse('Por favor, ingresa los parámetros.');
-      return;
-    }
-
-    const [ingredientes, tipo, dificultad, cantidadSalidas] = inputParams.split(';');
+    const ingredients = selectedIngredient || inputParams;
+    const type = selectedType;
+    const difficulty = selectedDifficulty;
+    const quantity = selectedQuantity;
 
     setResponse('Haciendo la solicitud al API...');
 
@@ -32,7 +58,7 @@ const ChatRecipes: React.FC = () => {
           model: 'gpt-3.5-turbo',
           messages: [
             { role: 'system', content: 'You are a helpful assistant.' },
-            { role: 'user', content: `Generar recetas;${ingredientes};${tipo};${dificultad};${cantidadSalidas}` },
+            { role: 'user', content: `Generar recetas;${ingredients};${type};${difficulty};${quantity}` },
           ],
         }),
       });
@@ -56,6 +82,10 @@ const ChatRecipes: React.FC = () => {
     }
 
     setInputParams('');
+    setSelectedIngredient('');
+    setSelectedType('');
+    setSelectedDifficulty('');
+    setSelectedQuantity('');
   };
 
   return (
@@ -68,10 +98,82 @@ const ChatRecipes: React.FC = () => {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Escribe los parámetros separados por ; (por ejemplo: ingredientes;tipo;dificultad;cantidadSalidas)"
+                placeholder="Escribe los ingredientes"
                 value={inputParams}
                 onChange={handleInputChange}
               />
+              <div className="input-group-append">
+                <button
+                  className="btn btn-outline-secondary"
+                  type="button"
+                  onClick={() => setIngredientListVisible(!ingredientListVisible)}
+                >
+                  Ingredientes
+                </button>
+                {ingredientListVisible && (
+                  <select className="form-control" onChange={(e) => handleIngredientSelect(e.target.value)}>
+                    <option value="">Ninguno</option>
+                    <option value="tomate">Tomate</option>
+                    <option value="fideos">Fideos</option>
+                    <option value="pollo">Pollo</option>
+                    {/* Agrega más ingredientes aquí */}
+                  </select>
+                )}
+              </div>
+              <div className="input-group-append">
+                <button
+                  className="btn btn-outline-secondary"
+                  type="button"
+                  onClick={() => setTypeListVisible(!typeListVisible)}
+                >
+                  Tipo
+                </button>
+                {typeListVisible && (
+                  <select className="form-control" onChange={(e) => handleTypeSelect(e.target.value)}>
+                    <option value="">Ninguno</option>
+                    <option value="casera">Casera</option>
+                    <option value="gourmet">Gourmet</option>
+                    <option value="saludable">Saludable</option>
+                    {/* Agrega más tipos aquí */}
+                  </select>
+                )}
+              </div>
+              <div className="input-group-append">
+                <button
+                  className="btn btn-outline-secondary"
+                  type="button"
+                  onClick={() => setDifficultyListVisible(!difficultyListVisible)}
+                >
+                  Dificultad
+                </button>
+                {difficultyListVisible && (
+                  <select className="form-control" onChange={(e) => handleDifficultySelect(e.target.value)}>
+                    <option value="">Ninguno</option>
+                    <option value="Fácil">Fácil</option>
+                    <option value="Media">Media</option>
+                    <option value="Difícil">Difícil</option>
+                  </select>
+                )}
+              </div>
+              <div className="input-group-append">
+                <button
+                  className="btn btn-outline-secondary"
+                  type="button"
+                  onClick={() => setQuantityListVisible(!quantityListVisible)}
+                >
+                  Cantidad
+                </button>
+                {quantityListVisible && (
+                  <select className="form-control" onChange={(e) => handleQuantitySelect(e.target.value)}>
+                    <option value="">Ninguno</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                )}
+              </div>
               <button className="btn btn-primary" type="submit">
                 Enviar
               </button>
@@ -92,3 +194,4 @@ const ChatRecipes: React.FC = () => {
 };
 
 export default ChatRecipes;
+
